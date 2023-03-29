@@ -1,0 +1,36 @@
+import numpy as np
+
+# Definir la matriz de coeficientes
+A = np.array([[0.25, 0.15, 0], [0.45, 0.5, 0.75], [0.3, 0.35, 0.25]])
+
+# Definir el vector de términos independientes
+b = np.array([1.5, 5, 3])
+
+# Calcular la determinante de A
+detA = np.linalg.det(A)
+
+# Calcular la determinante de A1 (reemplazando la columna 1 de A por b)
+A1 = A.copy()
+A1[:, 0] = b
+detA1 = np.linalg.det(A1)
+
+# Calcular la determinante de A2 (reemplazando la columna 2 de A por b)
+A2 = A.copy()
+A2[:, 1] = b
+detA2 = np.linalg.det(A2)
+
+# Calcular la determinante de A3 (reemplazando la columna 3 de A por b)
+A3 = A.copy()
+A3[:, 2] = b
+detA3 = np.linalg.det(A3)
+
+# Calcular las soluciones
+A = detA1 / detA
+B = detA2 / detA
+C = detA3 / detA
+
+# Imprimir las soluciones
+print("Cantidad del fertilizante tipo A: {:.2f} toneladas".format(A))
+print("Cantidad del fertilizante tipo B: {:.2f} toneladas".format(B))
+print("Cantidad del fertilizante tipo C: {:.2f} toneladas".format(C))
+
